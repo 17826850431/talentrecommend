@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.custom.i18n.resources" value="mess" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+	<constant name="struts.multipart.maxSize" value="1000000000" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="s" namespace="/" extends="json-default">
+	
+	     <action name="loginAction" class="loginAction" >
+	    	<result name="hr_success">/hr/postRecruit.jsp</result>
+	    	<result name="employee_success">/user/emergency.jsp</result>
+	    	<result name="admin_success">/admin/emergency.jsp</result>
+	    	<result name="fail">/login.jsp</result>
+	    </action>
+	    <action name="scoreAction" class="scoreAction" >
+	    	<result type="json">
+	    		 <param name="root">json</param>  
+	    	</result>
+	    </action>
+
+           
+
+	</package>	
+	<include file="struts-hr.xml"></include>
+	<include file="struts-user.xml"></include>
+	<include file="struts-admin.xml"></include>
+</struts>
